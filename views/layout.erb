@@ -1,0 +1,22 @@
+<!doctype html>  
+<html lang="en">  
+<head>  
+  <meta charset="utf8">  
+  <title><%= @title + ' Page' %></title>  
+  <link href="/css/reset.css" rel="stylesheet">  
+  <link href="/css/style.css" rel="stylesheet">  
+</head>  
+<body>  
+  <header>  
+    <hgroup>  
+      <h1><%= @title + ' Page' %></h1>  
+    </hgroup>  
+  </header>  
+  <div id="main">  
+    <%= yield %>  
+  </div>  
+  <footer>  
+    <p><small>A cat pictures voting app.</small></p>  
+  </footer>  
+</body>  
+</html>  

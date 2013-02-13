@@ -1,5 +1,6 @@
 require 'sinatra'
 
 get '/' do
-  "Hello, cats!"
+  @title = "Index"
+  erb :index
 end
