@@ -1,0 +1,6 @@
+<form name="user_delete" id="user_delete" action="/admin/users/<%= @user.id %>/delete" method="post">
+  <p>Are you sure you want to delete <%= @user.username %> permanently?</p>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Yes, delete.">
+  <a href="/admin/users">No, keep.</a>
+</form>

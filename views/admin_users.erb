@@ -1,0 +1,20 @@
+<a href="/admin/users/new">Create New</a>
+<br /><br />
+<table>
+    <tr>
+      <th align="center">ID</th>
+      <th align="center">Username</th>
+      <th align="center">Password MD5</th>
+      <th align="center">Created At</th>
+      <th></th>
+    </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.username %></td>
+      <td><%= user.password %></td>
+      <td><%= user.created_at %></td>
+      <td><a href="/admin/users/<%= user.id %>/delete">x delete</a></td>
+    </tr>
+  <% end %>
+</table>
