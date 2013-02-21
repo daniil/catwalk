@@ -17,6 +17,16 @@ get '/' do
   erb :index
 end
 
+get '/register' do
+  @title = "Register"
+  erb :register
+end
+
+get '/login' do
+  @title = "Login"
+  erb :login
+end
+
 # Admin section
 get '/admin/users' do
   @title = "Users"
