@@ -3,3 +3,18 @@
     padding: 10px;
     margin: 15px;
 }
+
+.flash {
+	border: 1px solid;
+	padding: 5px;
+}
+
+.flash.success {
+	border-color: #8DB600;
+	color: #8DB600;
+}
+
+.flash.error {
+	border-color: #E32636;
+	color: #E32636;
+}

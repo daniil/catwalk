@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'data_mapper'
+require 'sinatra/flash'
+
+enable :sessions
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
 
@@ -22,9 +25,45 @@ get '/register' do
   erb :register
 end
 
+post '/register' do
+  hashed_password = Digest::MD5.hexdigest(params[:password])
+  user = User.new(:username => params[:username], :password => hashed_password)
+  if user.save
+    flash[:success] = "Profile successfully created"
+    redirect "/profile"
+  else
+    flash[:error] = "User already exists"
+    redirect "/register"
+  end
+end
+
 get '/login' do
   @title = "Login"
   erb :login
+end
+
+post '/login' do
+  hashed_password = Digest::MD5.hexdigest(params[:password])
+  user = User.first(:username => params[:username], :password => hashed_password)
+  if user
+    flash[:success] = "Logged in successfully as #{user.username}"
+    session[:user_id] = user.id
+    redirect "/profile"
+  else
+    flash[:error] = "Wrong credentials"
+    redirect "/login"
+  end
+end
+
+get '/profile' do
+  @title = "Profile Information"
+  if session.id
+    @user = User.get session[:user_id]
+    erb :profile
+  else
+    flash[:error] = "You have to log in to use the site"
+    redirect "/login"
+  end
 end
 
 # Admin section

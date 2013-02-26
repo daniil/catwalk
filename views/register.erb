@@ -1,2 +1,22 @@
 <h2>Register Your Account</h2>
-<p>Soon will be able to.</p>
+<br />
+<% if flash[:error] %>
+  <p class="flash error"><%= flash[:error] %></p>
+<% end %>
+<form name="register" id="register" action="/register" method="post">
+  <table>
+    <tr>
+      <td>Username</td>
+      <td><input type="text" name="username" id="username"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input type="password" name="password" id="password"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Register">
+      </td>
+    </tr>
+  </table>
+</form>
