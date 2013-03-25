@@ -4,7 +4,7 @@
     <tr>
       <th align="center">ID</th>
       <th align="center">Username</th>
-      <th align="center">Password MD5</th>
+      <th align="center">Account Type</th>
       <th align="center">Created At</th>
       <th></th>
     </tr>
@@ -12,9 +12,9 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= user.username %></td>
-      <td><%= user.password %></td>
+      <td><%= user.account_type %></td>
       <td><%= user.created_at %></td>
-      <td><a href="/admin/users/<%= user.id %>/delete">x delete</a></td>
+      <td><a href="/admin/users/<%= user.id %>/delete">delete</a></td>
     </tr>
   <% end %>
 </table>

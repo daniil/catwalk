@@ -1,0 +1,10 @@
+:: OUTSTANDING ::
+
+- Implement session timeout
+- Implement flash messages partial
+- Change templates to HAML
+- Change to SASS
+- Better security, look into implementing proper authentication system
+
+:: CHANGELOG ::
+

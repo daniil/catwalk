@@ -11,6 +11,7 @@ class User
   property :id, Serial
   property :username, String, :required => true, :unique => true
   property :password, String, :required => true
+  property :account_type, Integer, :default => 0
   property :created_at, DateTime
 end
 DataMapper.finalize.auto_upgrade!
@@ -80,7 +81,9 @@ end
 
 post '/admin/users/new' do
   hashed_password = Digest::MD5.hexdigest(params[:password])
-  user = User.new(:username => params[:username], :password => hashed_password)
+  user = User.new(:username     => params[:username], 
+                  :password     => hashed_password,
+                  :account_type => params[:account_type])
   if user.save
     redirect "/admin/users"
   else
